@@ -8,6 +8,17 @@ class App extends Component {
     },
     people: []
   }
+  onFormSubmit = evt => {
+    const people = [...this.state.people, this.state.fields]
+    this.setState({
+      people,
+      fields: {
+        name: '',
+        email: ''
+      }
+    })
+    evt.preventDefault()
+  }
 
   onInputChange = evt => {
     const fields = this.state.fields
@@ -19,6 +30,7 @@ class App extends Component {
       <div>
         <form
           className='flex flex-col items-center p-20 justify-between'
+          onSubmit={this.onFormSubmit}
         >
           <input 
             className='bg-slate-200 px-5 py-3 border-transparent focus:outline-none text-black w-56'
