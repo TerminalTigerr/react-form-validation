@@ -38,7 +38,7 @@ class App extends Component {
     const errors = {}
     if(!person.name) errors.name = 'Name Required'
     if(!person.email) errors.email = 'Email Required'
-    if(person.name && !isEmail(person.email)) errors.email = "Invalid Email"
+    if(person.email && !isEmail(person.email)) errors.email = "Invalid Email"
     return errors
   }
   render() {
